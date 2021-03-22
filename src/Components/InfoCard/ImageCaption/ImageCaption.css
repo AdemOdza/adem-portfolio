@@ -1,0 +1,18 @@
+#caption-info {
+    background-color: transparent;
+    text-align: center;
+    font-weight: bold;
+    opacity: 90%;
+    border-radius: 10px;
+}
+
+#background-info {
+    color: inherit;
+}
+
+#image {
+    background-color: inherit;
+    object-position: top;
+    border-radius: 50%;
+    scale: 60%;
+}

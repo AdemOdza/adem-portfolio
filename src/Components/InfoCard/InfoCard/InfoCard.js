@@ -1,6 +1,7 @@
 import React from 'react';
-import ImageCaption from './ImageCaption/ImageCaption'
-import { Card, CardImg, CardTitle, Container, Row, Col } from 'reactstrap';
+import './InfoCard.css'
+import ImageCaption from '../ImageCaption/ImageCaption'
+import { Card, CardImg, CardTitle, Container, Row, Col, Jumbotron} from 'reactstrap';
 
 
 function InfoCard(props) {
@@ -12,8 +13,11 @@ function InfoCard(props) {
             <Row>
                 <h1>{props.title}</h1>
             </Row>
+
             <Row>
-                <p>{props.body}</p>
+                <Jumbotron>
+                <p class="body-text">{props.body}</p>
+                </Jumbotron>
             </Row>
         </Col>
     </Container>

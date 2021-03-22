@@ -1,0 +1,15 @@
+#homepage-background {
+    background-color: rgb(94, 216, 190);
+    padding: 50px;
+    border-radius: 25px;
+
+}
+
+.homepage-color-theme {
+    margin: 0px;
+    background-color: rgb(94, 216, 190);
+}
+
+#row-spacer {
+    padding: 20px;
+}
