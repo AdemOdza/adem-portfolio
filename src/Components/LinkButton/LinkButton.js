@@ -10,7 +10,7 @@ function LinkButton(props) {
     return(
         <>
             <Button className="button-background" href = {props.url} target={props.target}>
-            <text className="button-text">{props.label}</text>
+                <text className="button-text">{props.label}</text>
             </Button>
         </>
     )

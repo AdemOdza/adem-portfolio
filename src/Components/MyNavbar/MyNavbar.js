@@ -14,8 +14,10 @@ function MyNavbar() {
             </h2>
 
             <LinkButton label="Home" url="/"/>
+            
+            <DropdownButton label="Projects" url="/projects" />
 
-            <DropdownButton label="Projects"/>
+            <LinkButton label = "Experience" url="/experience" />
         
             <LinkButton label="GitHub" url="https://github.com/AdemOdza" target="_blank"/>
 

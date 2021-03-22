@@ -1,26 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import MyNavbar from './Components/MyNavbar/MyNavbar';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 ReactDOM.render(
   <React.StrictMode>
-
-    <MyNavbar/>
-    <Router>
-      <Switch>
-
-        <Route path= "/">
-          <App />
-        </Route>
-
-
-      </Switch>
-    </Router>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
