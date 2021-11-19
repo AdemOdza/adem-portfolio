@@ -1,24 +1,18 @@
 #caption-info {
-    border-radius: 0px;
+    background-color: transparent;
     text-align: center;
     font-weight: bold;
-    font-size: 35pt;
-    color:rgb(94, 192, 216) !important;
-    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-    opacity: 80%;
-    margin-top: -10px;
+    opacity: 90%;
+    border-radius: 10px;
 }
 
 #background-info {
-    background-color: rgb(0, 38, 255);
-    border-radius: 10px;
-    margin: -1px;
-
+    color: inherit;
 }
 
 #image {
-    background-color: rgb(94, 216, 190);
+    background-color: inherit;
+    object-position: top;
     border-radius: 50%;
     scale: 60%;
-    margin-bottom: -30px;
 }
