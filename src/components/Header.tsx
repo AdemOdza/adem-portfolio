@@ -1,31 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
+import LanguageToggle from './LanguageToggle';
+import { NavDropdown } from 'react-bootstrap';
 
-export function Header() {
+export function Header({isEnglish, toggleLanguage}: {isEnglish: boolean, toggleLanguage: () => void}) {
     return (
     <div>
         <Navbar expand="lg" className="bg-body-tertiary" data-bs-theme="dark">
             <Container>
-
+                <LanguageToggle isEnglish = {isEnglish} onToggle = {toggleLanguage} />
                 <Navbar.Brand href="/">Adem Odza</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link href="/test">Test</Nav.Link>
-                        {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">
-                            Another action
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">
-                            Separated link
-                        </NavDropdown.Item>
-                        </NavDropdown> */}
+                        {
+                        <NavDropdown title="Experience" id="experience-nav-dropdown">
+                            <NavDropdown.Item href="/experience/#repairify">
+                                Repairify, Inc.
+                            </NavDropdown.Item>
+                            <NavDropdown.Item href="/experience/#astech">
+                                AsTech Automotive Technicians
+                            </NavDropdown.Item>
+                        </NavDropdown> 
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>
