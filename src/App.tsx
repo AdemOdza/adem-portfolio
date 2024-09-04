@@ -7,7 +7,6 @@ import {
 import Header from './components/Header';
 import ErrorPage from './pages/Error';
 import Home from './pages/Home';
-import ReactDOM from 'react-dom';
 
 //Component reference: https://react-bootstrap.netlify.app/docs/components
 
