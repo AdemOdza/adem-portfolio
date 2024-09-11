@@ -12,13 +12,13 @@ export function Header({isEnglish, toggleLanguage}: {isEnglish: boolean, toggleL
             <Container>
                 <LanguageToggle isEnglish = {isEnglish} onToggle = {toggleLanguage} />
                 <Navbar.Brand href="/">
-                    <img
+                    {/* <img
                         alt=""
                         src="/favicon-32x32.png"
                         width="30"
                         height="30"
                         className="d-inline-block align-top"
-                    />{' '}
+                    />{' '} */}
                     Adem Odza
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
