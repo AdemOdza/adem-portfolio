@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description: "Adem Odza's Portfolio",
 };
 
-
+// Toolbar
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jetbrainsMono.variable} antialiased`}
+        className={`.body antialiased`}
       >
         {children}
       </body>
