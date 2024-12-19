@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import NavBar from "@/components/NavBar";
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono"
@@ -19,9 +20,13 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Adem Odza",
   description: "Adem Odza's Portfolio",
+  authors: {name: "Adem Odza", url: "www.ademodza.com"},
+  abstract: "This is my portfolio website. It contains information about my skills, work history, personal projects, and personal interests."
 };
 
-// Toolbar
+
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,8 +35,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`.body antialiased`}
+        className={`body antialiased`}
       >
+        <NavBar/>
         {children}
       </body>
     </html>
