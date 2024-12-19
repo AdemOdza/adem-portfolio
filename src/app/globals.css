@@ -10,13 +10,110 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
+    --background-alt: #0a0a0a;
     --foreground: #ededed;
     --text-color: #4af626;
+    --error-color: #b22222;
   }
 }
 
 body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'JetBrains Mono', Arial, Helvetica, sans-serif;
+}
+
+.body-text {
+  color: var(--text-color);
+}
+
+.error-text {
+  color: var(--error-color);
+}
+
+.logo {
+  /* This CSS class should place some space around the content while not making the content too large */
+  margin: 0 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.navbar {
   color: var(--text-color);
   background: var(--background);
   font-family: 'JetBrains Mono', Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.navbar-item {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin: 0 1rem;
+}
+
+.navbar-links{
+  /* This CSS class should restrict the items to the middle 60% of the navbar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 60%;
+}
+
+.navbar-link {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  &.active {
+      color: var(--foreground);
+  }
+}
+
+.cursor {
+  text-decoration: none;
+}
+
+.navbar-link:active {
+  color: var(--foreground);
+}
+
+
+.navbar-link:hover {
+  text-decoration: underline bold !important;
+}
+
+.hover-underline {
+  text-decoration: none;
+}
+
+.hover-underline:hover {
+  text-decoration: underline bold !important;
+}
+
+.navbar-socials {
+  display: flex;
+  align-items: center;
+}
+
+.blinking {
+  animation: blinker 1s infinite;
+  /* animation: blinker 1.7s cubic-bezier(0.5, 0, 1, 1) infinite alternate; */
+}
+@keyframes blinker {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
