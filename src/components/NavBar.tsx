@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react'
 import NavItem from './NavItem';
 import Link from 'next/link';
 
-const navbarLinks: {english: string, shqip: string, url: string}[] = [
+const navbarLinks: {english: string, shqip: string, url: string, newTab?: boolean | undefined}[] = [
     {english: "Home", shqip: "Shpi", url: "/"},
     {english: "Projects", shqip: "Projektet", url: "/projects"},
-    {english: "Test B", shqip: "B", url: "/b"},
+    {english: "Placeholder", shqip: "B", url: "https://apod.nasa.gov/apod/astropix.html", newTab: true},
 ];
 
 export const NavBar = () => {

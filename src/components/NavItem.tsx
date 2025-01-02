@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export const NavItem = ({
     item
-  }: Readonly<{item: {english: string, shqip: string, url: string}}>) => {
+  }: Readonly<{item: {english: string, shqip: string, url: string, newTab?: boolean | undefined}}>) => {
     const [isHovering, setHover] = useState(false);
     const onHover = () => {
         setHover(true);
@@ -18,8 +18,8 @@ export const NavItem = ({
 
     return (
         <li className="navbar-link" onMouseEnter={onHover} onMouseLeave={onLeave}>
-            <Link href={item.url}>
-                {isHovering && (<span className='blinking cursor'>&gt;</span>)}{text}
+            <Link href={item.url} rel="noopener noreferrer" target={item.newTab ? "_blank" : "_self"}>
+                {isHovering && (<span className='blinking cursor'>&gt;</span>)}{text}{isHovering && (<span className='blinking cursor'>&lt;</span>)}
             </Link>
         </li>
     )
