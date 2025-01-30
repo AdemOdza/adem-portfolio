@@ -5,8 +5,9 @@ import Link from 'next/link';
 
 const navbarLinks: {english: string, shqip: string, url: string, newTab?: boolean | undefined}[] = [
     {english: "Home", shqip: "Shpi", url: "/"},
+    {english: "Experience", shqip: "Eksperiencë", url: "/experience"},
     {english: "Projects", shqip: "Projektet", url: "/projects"},
-    {english: "Placeholder", shqip: "B", url: "https://apod.nasa.gov/apod/astropix.html", newTab: true},
+    {english: "Test", shqip: "asdf", url: "https://apod.nasa.gov/apod/astropix.html", newTab: true},
 ];
 
 export const NavBar = () => {
@@ -33,8 +34,8 @@ export const NavBar = () => {
                     { navbarLinks.map((item) => <NavItem item={item} key={id++}/>) }
                 </ul>
             </div>
-            <div className="navbar-socials">
-                {/* // Linkedin, GitHub */}
+            <div className="language-toggle">
+                {/* // Shqip and English */}
                 TBD
             </div>
         </nav>
