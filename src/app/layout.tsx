@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
+import SocialsFooter from "@/components/SocialsFooter";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const jetbrainsMono = JetBrains_Mono({
@@ -43,6 +44,7 @@ export default function RootLayout({
       >
         <NavBar/>
         {children}
+        <SocialsFooter />
       </body>
     </html>
   );

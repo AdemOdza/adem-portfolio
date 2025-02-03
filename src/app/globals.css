@@ -97,11 +97,6 @@ body {
   text-decoration: underline bold !important;
 }
 
-.navbar-socials {
-  display: flex;
-  align-items: center;
-}
-
 .blinking {
   animation: blinker 1s infinite;
   /* animation: blinker 1.7s cubic-bezier(0.5, 0, 1, 1) infinite alternate; */
@@ -116,4 +111,16 @@ body {
   100% {
     opacity: 1;
   }
+}
+
+.socials-footer {
+  position: fixed;
+  color: var(--text-color);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  background: var(--background);
+  padding: 1rem 0;
 }
