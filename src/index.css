@@ -1,13 +1,161 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap');
+
+/* ── Terminal CSS Variables ─────────────────────────── */
+:root {
+  --tm-bg:            #0a0a0a;
+  --tm-bg-card:       #0c140c;
+  --tm-green:         #00ff41;
+  --tm-green-dim:     #00b32c;
+  --tm-green-muted:   rgba(0, 255, 65, 0.55);
+  --tm-green-glow:    rgba(0, 255, 65, 0.2);
+  --tm-border:        rgba(0, 255, 65, 0.4);
+  --tm-border-hover:  rgba(0, 255, 65, 0.85);
+  --tm-font-mono:     'Share Tech Mono', 'Courier New', monospace;
+  --tm-font-display:  'VT323', monospace;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* ── Bootstrap Dark Theme Variable Overrides ────────── */
+[data-bs-theme="dark"] {
+  --bs-body-bg:                  var(--tm-bg);
+  --bs-body-color:               var(--tm-green);
+  --bs-emphasis-color:           var(--tm-green);
+  --bs-secondary-color:          var(--tm-green-muted);
+  --bs-border-color:             var(--tm-border);
+  --bs-card-bg:                  var(--tm-bg-card);
+  --bs-card-border-color:        var(--tm-border);
+  --bs-link-color:               var(--tm-green);
+  --bs-link-hover-color:         #fff;
+  --bs-navbar-color:             rgba(0, 255, 65, 0.7);
+  --bs-navbar-hover-color:       var(--tm-green);
+  --bs-navbar-active-color:      var(--tm-green);
+  --bs-navbar-brand-color:       var(--tm-green);
+  --bs-navbar-brand-hover-color: #fff;
+  --bs-nav-link-color:           rgba(0, 255, 65, 0.7);
+  --bs-nav-link-hover-color:     var(--tm-green);
+}
+
+/* ── Base ───────────────────────────────────────────── */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--tm-bg);
+  color: var(--tm-green);
+}
+
+body {
+  font-family: var(--tm-font-mono);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ── Typography ─────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--tm-font-display);
+  color: var(--tm-green);
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 10px var(--tm-green-glow);
+}
+
+p, span, li {
+  font-family: var(--tm-font-mono);
+  color: var(--tm-green);
+}
+
+a {
+  color: var(--tm-green);
+  text-decoration: none;
+  transition: color 0.15s ease, text-shadow 0.15s ease;
+}
+
+a:hover {
+  color: #fff;
+  text-shadow: 0 0 8px var(--tm-green);
+}
+
+hr {
+  border-color: var(--tm-border);
+  opacity: 1;
+  box-shadow: 0 0 6px var(--tm-green-glow);
+}
+
+/* ── Navbar ─────────────────────────────────────────── */
+.navbar {
+  background-color: var(--tm-bg) !important;
+  border-bottom: 1px solid var(--tm-border) !important;
+  box-shadow: 0 1px 18px var(--tm-green-glow);
+}
+
+.navbar-brand {
+  font-family: var(--tm-font-display) !important;
+  font-size: 1.5rem !important;
+  letter-spacing: 0.1em !important;
+  color: var(--tm-green) !important;
+  text-shadow: 0 0 10px var(--tm-green);
+}
+
+.navbar-brand:hover {
+  color: #fff !important;
+}
+
+.nav-link {
+  font-family: var(--tm-font-mono) !important;
+  font-size: 0.88rem !important;
+  color: rgba(0, 255, 65, 0.7) !important;
+  letter-spacing: 0.03em;
+  transition: color 0.15s ease, text-shadow 0.15s ease !important;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--tm-green) !important;
+  text-shadow: 0 0 8px var(--tm-green);
+}
+
+.navbar-toggler {
+  border-color: var(--tm-border) !important;
+}
+
+/* Green hamburger icon */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0,255,65,0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* ── CRT Scanlines Overlay ──────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, 0.07) 3px,
+    rgba(0, 0, 0, 0.07) 4px
+  );
+  z-index: 9999;
+}
+
+/* ── Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: var(--tm-bg); }
+::-webkit-scrollbar-thumb  { background: var(--tm-green-dim); border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: var(--tm-green); }
+
+/* ── Text Selection ─────────────────────────────────── */
+::selection {
+  background: var(--tm-green);
+  color: var(--tm-bg);
+}
+
+/* ── Animations ─────────────────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
 }

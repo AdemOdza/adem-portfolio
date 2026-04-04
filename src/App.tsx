@@ -17,7 +17,7 @@ import Interests from './pages/Interests';
 
 function Layout() {
   return (
-    <div className="App" id="main-page">
+    <div className="App" id="main-page" data-bs-theme="dark">
       <Header />
       <Outlet />
     </div>
