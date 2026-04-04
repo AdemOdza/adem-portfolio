@@ -1,13 +1,8 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import { InterestData } from '../../types';
 
-export interface Interest {
-    emoji: string;
-    title: string;
-    description: string;
-}
-
-const InterestCard = ({ emoji, title, description }: Interest) => {
+const InterestCard = ({ emoji, title, description }: InterestData) => {
     return (
         <Card className="interest-card h-100">
             <Card.Body className="p-4">

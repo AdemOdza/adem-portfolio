@@ -1,13 +1,6 @@
 import React from 'react';
 import { Card, Badge, Button } from 'react-bootstrap';
-
-export interface Project {
-    title: string;
-    description: string;
-    tech: string[];
-    githubUrl?: string;
-    liveUrl?: string;
-}
+import { ProjectData } from '../../types';
 
 // Map tech names to Bootstrap badge variants
 export const techColor: Record<string, { bg: string; text?: string }> = {
@@ -23,26 +16,30 @@ export const techColor: Record<string, { bg: string; text?: string }> = {
     'Express':       { bg: 'secondary' },
 };
 
-const ProjectCard = ({ title, description, tech, githubUrl, liveUrl }: Project) => {
+interface ProjectCardProps extends ProjectData {
+    githubLabel?: string;
+    liveDemoLabel?: string;
+}
+
+const ProjectCard = ({
+    title,
+    description,
+    tech,
+    githubUrl,
+    liveUrl,
+    githubLabel = 'GitHub',
+    liveDemoLabel = 'Live Demo',
+}: ProjectCardProps) => {
     return (
         <Card className="project-card h-100">
             <Card.Body className="d-flex flex-column p-4">
-                <Card.Title className="fw-bold fs-5 mb-2">
-                    {title}
-                </Card.Title>
-                <Card.Text className="text-muted flex-grow-1 mb-3">
-                    {description}
-                </Card.Text>
+                <Card.Title className="fw-bold fs-5 mb-2">{title}</Card.Title>
+                <Card.Text className="text-muted flex-grow-1 mb-3">{description}</Card.Text>
                 <div className="d-flex flex-wrap gap-1 mb-3">
                     {tech.map(t => {
                         const c = techColor[t] ?? { bg: 'secondary' };
                         return (
-                            <Badge
-                                key={t}
-                                bg={c.bg}
-                                text={c.text}
-                                className="tech-badge"
-                            >
+                            <Badge key={t} bg={c.bg} text={c.text} className="tech-badge">
                                 {t}
                             </Badge>
                         );
@@ -57,7 +54,7 @@ const ProjectCard = ({ title, description, tech, githubUrl, liveUrl }: Project) 
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            GitHub
+                            {githubLabel}
                         </Button>
                     )}
                     {liveUrl && (
@@ -68,7 +65,7 @@ const ProjectCard = ({ title, description, tech, githubUrl, liveUrl }: Project) 
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            Live Demo
+                            {liveDemoLabel}
                         </Button>
                     )}
                 </div>

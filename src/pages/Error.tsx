@@ -1,22 +1,26 @@
 import React from 'react';
 import { isRouteErrorResponse, useRouteError } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
+import { errorTranslations } from '../translations';
 
 const ErrorPage = () => {
     const error = useRouteError();
-    console.error(error);
+    const { language } = useLanguage();
+    const t = errorTranslations[language];
 
-    return(
+    if (process.env.NODE_ENV !== 'production') {
+        console.error(error);
+    }
+
+    return (
         <div id="error-page">
-            <h1>Error</h1>
-            <p>{"There was an error accessing the page:"}</p>
+            <h1>{t.heading}</h1>
+            <p>{t.body}</p>
             <p>
                 <i>
-                {isRouteErrorResponse(error) ? 
-                ((error.statusText || error.data?.message) ? 
-                    (error.statusText || error.data?.message) : 
-                    'Page Not Found'
-                ) : 
-                "Page Not Found"}
+                    {isRouteErrorResponse(error)
+                        ? ((error.statusText || error.data?.message) || t.notFound)
+                        : t.notFound}
                 </i>
             </p>
         </div>

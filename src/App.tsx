@@ -5,6 +5,7 @@ import {
   Outlet,
   RouterProvider,
 } from "react-router-dom";
+import { LanguageProvider } from './context/LanguageContext';
 
 import Header from './components/Header';
 import ErrorPage from './pages/Error';
@@ -29,8 +30,8 @@ const router = createBrowserRouter([
     element: <Layout />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "/",         element: <Home /> },
-      { path: "/about",     element: <About /> },
+      { path: "/",         element: <About /> },
+      // { path: "/about",     element: <About /> },
       { path: "/projects",  element: <Projects /> },
       { path: "/interests", element: <Interests /> },
       { path: "/ping",      element: <p>Pong!</p> },
@@ -40,7 +41,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <LanguageProvider>
+      <RouterProvider router={router} />
+    </LanguageProvider>
+  );
 }
 
 export default App;

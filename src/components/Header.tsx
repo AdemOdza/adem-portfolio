@@ -5,10 +5,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link, NavLink } from 'react-router-dom';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/Twitter';
+import { useLanguage } from '../context/LanguageContext';
+import { navTranslations } from '../translations';
 
-// ── Social links ─────────────────────────────────────────────
-// Update these URLs to point to your real profiles.
 const SOCIAL_LINKS = [
     {
         label: 'GitHub',
@@ -19,27 +18,42 @@ const SOCIAL_LINKS = [
         label: 'LinkedIn',
         href: 'https://www.linkedin.com/in/adem-odza',
         icon: <LinkedInIcon fontSize="small" />,
-    }
+    },
 ];
 
 export function Header() {
+    const { language, toggleLanguage } = useLanguage();
+    const t = navTranslations[language];
+
     return (
         <div>
             <Navbar expand="lg" className="bg-body-tertiary" data-bs-theme="dark">
                 <Container>
 
                     {/* Brand */}
-                    <Navbar.Brand as={Link} to="/">Adem Odza</Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/">{t.brand}</Navbar.Brand>
                     <Navbar.Toggle aria-controls="main-navbar" />
 
                     <Navbar.Collapse id="main-navbar">
                         {/* ── Left: page links ── */}
                         <Nav className="me-auto">
-                            <Nav.Link as={NavLink} to="/about">About</Nav.Link>
-                            <Nav.Link as={NavLink} to="/projects">Projects</Nav.Link>
-                            <Nav.Link as={NavLink} to="/interests">Interests</Nav.Link>
-                            <Nav.Link href="/test">Test</Nav.Link>
+                            {/* <Nav.Link as={NavLink} to="/about">{t.about}</Nav.Link> */}
+                            <Nav.Link as={NavLink} to="/projects">{t.projects}</Nav.Link>
+                            <Nav.Link as={NavLink} to="/interests">{t.interests}</Nav.Link>
+                            <Nav.Link href="/test">{t.test}</Nav.Link>
                         </Nav>
+
+                        {/* ── Centre: language toggle ── */}
+                        <button
+                            className="lang-toggle mx-3"
+                            onClick={toggleLanguage}
+                            aria-label="Toggle language"
+                            title={`Switch to ${language === 'en' ? 'alt' : 'EN'}`}
+                        >
+                            <span className={`lang-opt ${language === 'en' ? 'active' : ''}`}>EN</span>
+                            <span className="lang-divider">│</span>
+                            <span className={`lang-opt ${language === 'alt' ? 'active' : ''}`}>ALT</span>
+                        </button>
 
                         {/* ── Right: social icons ── */}
                         <Nav className="align-items-center gap-1">
