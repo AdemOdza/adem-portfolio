@@ -2,6 +2,19 @@
   text-align: center;
 }
 
+/* ── Navbar social icon links ── */
+.social-icon-link {
+    opacity: 0.75;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    display: flex;
+    align-items: center;
+}
+
+.social-icon-link:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

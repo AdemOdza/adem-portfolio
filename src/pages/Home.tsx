@@ -9,9 +9,9 @@ const Home = () => {
         <div>
         <br />
         </div>
-        <body>
-            {"I don't have anything to put here yet."} 
-        </body>
+        <p>
+            {"I don't have anything to put here yet."}
+        </p>
     </div>
   );
 };

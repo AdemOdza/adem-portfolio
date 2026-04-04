@@ -8,7 +8,7 @@ const ErrorPage = () => {
     return(
         <div id="error-page">
             <h1>Error</h1>
-            <body> {"There was an error accessing the page:" }</body>
+            <p>{"There was an error accessing the page:"}</p>
             <p>
                 <i>
                 {isRouteErrorResponse(error) ? 
